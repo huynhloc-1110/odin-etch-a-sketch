@@ -41,17 +41,35 @@ function clear(event) {
   }
 }
 
+/**
+ * Validate edge pixel, return false if edge pixel is not a positive number
+ * <=100 because 100x100 div will cause lagging.
+ */
+function isValid(edgePixel) {
+  if (!Number.isInteger(edgePixel)) {
+    alert("Your input is not an integer!");
+    return false;
+  }
+  if (edgePixel <= 0) {
+    alert("n is not positive!");
+    return false;
+  }
+  if (edgePixel > 100) {
+    alert("n is over 100!");
+    return false;
+  }
+  return true;
+}
+
 function generateNewGrid() {
   /**
-   * Input and validate edge pixel, return if edge pixel > 100
-   * because 100x100 div will cause lagging.
+   * Input and validate edge pixel
    */
   let edgePixel = prompt("Enter n as edge pixel" +
     " (this action will generate new n x n panel):");
-  if (edgePixel > 100) {
-    alert("n is over 100!");
-    return;
-  }
+  if (edgePixel == null) return;
+  edgePixel = parseInt(edgePixel);
+  if (!isValid(edgePixel)) return;
   
   /**
    * Delete the old grid, set css for new grid, generate new grid.
