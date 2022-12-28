@@ -1,3 +1,13 @@
+header {
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 #draw-panel {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
@@ -8,9 +18,28 @@
 }
 
 .grid-item {
-  border: 1px solid lightgray;
+  border: 1px solid rgb(245, 245, 245);
 }
 
 .grid-item:hover {
-  background-color: lightblue ;
+  background-color: lightblue;
+}
+
+#controls {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#controls>button {
+  margin: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+footer>small {
+  font-size: 16px;
 }
