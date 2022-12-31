@@ -8,6 +8,10 @@ btnClear.addEventListener('click', clear);
 const btnNewPanel = document.querySelector('#btn-new-panel');
 btnNewPanel.addEventListener('click', generateNewGrid);
 
+const colorPicker = document.querySelector('#color-picker');
+let color = '#000000';
+colorPicker.addEventListener('change', changeColor);
+
 function generateGrid(edgePixel) {
   pixels = [];
   for (let i = 0; i < edgePixel*edgePixel; i++) {
@@ -21,6 +25,10 @@ function generateGrid(edgePixel) {
   }
 }
 
+function changeColor(event) {
+  color = colorPicker.value;
+}
+
 function draw(mouseEvent) {
   /**
    * Because dragging and selecting is the default behaviors on mousedown
@@ -32,7 +40,7 @@ function draw(mouseEvent) {
    * This is for mouseover event when the user hold the mouse through the pixel.
    */
   if (mouseEvent.buttons == 1)
-    this.style.backgroundColor = "black";
+    this.style.backgroundColor = color;
 }
 
 function clear(event) {

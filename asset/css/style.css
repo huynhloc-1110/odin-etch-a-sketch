@@ -31,7 +31,7 @@ main {
   flex-direction: column;
 }
 
-#controls>button {
+#controls>* {
   margin: 10px;
 }
 
